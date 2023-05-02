@@ -122,7 +122,7 @@ include 'header.php';
                         </li>
                         </ul>
                         <div class="card-body">
-                        <center><a href="booking.php?id=<?php echo $isi['id_ps'];?>" class="btn btn-success">Rental Sekarang now!</a>
+                        <center><a href="booking.php?id=<?php echo $isi['id_ps'];?>" class="btn btn-success">Rental Sekarang</a>
                         <a href="detail.php?id=<?php echo $isi['id_ps'];?>" class="btn btn-info">Detail</a></center>
                         </div>
                     </div>

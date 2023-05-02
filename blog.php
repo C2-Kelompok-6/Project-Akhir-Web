@@ -20,8 +20,6 @@
             if($_GET['cari'])
             {
                 echo '<h4> Keyword Pencarian : '.$cari.'</h4>';
-            }else{
-                echo '<h4> Semua Mobil</h4>';
             }
         ?>
         <div class="row mt-3">
@@ -39,11 +37,11 @@
                     <ul class="list-group list-group-flush">
                         <?php if($isi['status'] == 'Tersedia'){?>
                             <li class="list-group-item bg-primary text-white">
-                                <i class="fa fa-check"></i> Available
+                                <i class="fa fa-check"></i> Tersedia
                             </li>
                         <?php }else{?>
                             <li class="list-group-item bg-danger text-white">
-                                <i class="fa fa-close"></i> Not Available
+                                <i class="fa fa-close"></i> Tidak tersedia
                             </li>
                         <?php }?>
                         <li class="list-group-item bg-info text-white"><i class="fa fa-check"></i> Free E-toll 50k</li>
