@@ -12,6 +12,18 @@
   </head>
   <body>
     <div class="jumbotron pt-4 pb-4">
+    <form method="get" action="blog.php">
+    <div class="form-group">
+        <label for="status">Status</label>
+        <select name="status" id="status" class="form-control">
+            <option value="">Semua</option>
+            <option value="Tersedia">Tersedia</option>
+            <option value="Tidak Tersedia">Tidak Tersedia</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Filter</button>
+</form>
+
         <div class="row">
             <div class="col-sm-8">
                 <h2><b style="text-transform:uppercase;"><?= $info_web->nama_rental;?> </b></h2>

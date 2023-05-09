@@ -23,7 +23,7 @@
 
                 <center><h3>Pembayaran Dapat Melalui :</h3>
                 <hr/>
-                <p> BRI 2132131246 A/N Rental Dirga </p></center>
+                <p> BRI 2132131246 A/N Rental Gaming </p></center>
 
             </div>
         </div>

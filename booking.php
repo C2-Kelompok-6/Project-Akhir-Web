@@ -31,7 +31,6 @@
                     <i class="fa fa-close"></i> Not Available
                 </li>
             <?php }?>
-            <li class="list-group-item bg-info text-white"><i class="fa fa-check"></i> Free E-toll 50k</li>
             <li class="list-group-item bg-dark text-white">
                 <i class="fa fa-money"></i> Rp. <?php echo number_format($isi['harga']);?>/ day
             </li>
