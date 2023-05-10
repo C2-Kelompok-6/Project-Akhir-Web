@@ -7534,6 +7534,11 @@ button.bg-dark:focus {
 .mt-4,
 .my-4 {
   margin-top: 1.5rem !important;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
 }
 
 .mr-4,
