@@ -2,7 +2,11 @@
 
     require '../../koneksi/koneksi.php';
     $title_web = 'User';
+<<<<<<< HEAD
     include '../karyawanHD.php';
+=======
+    include '../header.php';
+>>>>>>> 16789c06424094352e6374f0ecd048cdb639d855
     if(empty($_SESSION['USER']))
     {
         session_start();
@@ -53,4 +57,18 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
+=======
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+>>>>>>> 16789c06424094352e6374f0ecd048cdb639d855
 <?php  include '../footer.php';?>

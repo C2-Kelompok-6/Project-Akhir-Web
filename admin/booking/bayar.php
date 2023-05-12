@@ -2,7 +2,11 @@
 
     require '../../koneksi/koneksi.php';
     $title_web = 'Konfirmasi';
+<<<<<<< HEAD
     include '../karyawanHD.php';
+=======
+    include '../header.php';
+>>>>>>> 16789c06424094352e6374f0ecd048cdb639d855
     session_start();
     if(empty($_SESSION['USER']))
     {
@@ -163,5 +167,14 @@
 <br>
 <br>
 <br>
+<<<<<<< HEAD
 
+=======
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+>>>>>>> 16789c06424094352e6374f0ecd048cdb639d855
 <?php include '../footer.php';?>

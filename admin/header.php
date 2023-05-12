@@ -44,6 +44,7 @@
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+<<<<<<< HEAD
                 <li class="nav-item <?php if($title_web == 'Dashboard'){ echo 'active';}?>">
                     <a class="nav-link" href="<?php echo $url;?>admin/">Beranda <span class="sr-only">(current)</span></a>
                 </li>
@@ -68,6 +69,24 @@
                 </li>
                
             
+=======
+                
+                <li class="nav-item <?php if($title_web == 'User'){ echo 'active';}?>">
+                    <a class="nav-link" href="<?php echo $url;?>admin/user/index.php">Pelanggan</a>
+                </li>
+                <li class="nav-item <?php if($title_web == 'Daftar Playstation'){ echo 'active';}?>
+                <?php if($title_web == 'Tambah '){ echo 'active';}?>
+                <?php if($title_web == 'Edit '){ echo 'active';}?>">
+                    <a class="nav-link" href="<?php echo $url;?>admin/ps/ps.php">Daftar Playstation</a>
+                </li>
+                <li class="nav-item <?php if($title_web == 'Daftar Booking'){ echo 'active';}?>
+                <?php if($title_web == 'Konfirmasi'){ echo 'active';}?>">
+                    <a class="nav-link" href="<?php echo $url;?>admin/booking/booking.php">Daftar Booking</a>
+                </li>
+                <li class="nav-item <?php if($title_web == 'Peminjaman'){ echo 'active';}?>">
+                    <a class="nav-link" href="<?php echo $url;?>admin/peminjaman/peminjaman.php">Peminjaman / Pengembalian</a>
+                </li>
+>>>>>>> 16789c06424094352e6374f0ecd048cdb639d855
             </ul>
             <ul class="navbar-nav my-2 my-lg-0">
                 <li class="nav-item">

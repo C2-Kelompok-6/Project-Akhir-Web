@@ -7,6 +7,10 @@
 
     global $url;
     $url = "http://localhost/rental_Gaming/";
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 16789c06424094352e6374f0ecd048cdb639d855
 
     $sql_web = "SELECT * FROM infoweb WHERE id = 1";
     $row_web = $koneksi->prepare($sql_web);

@@ -1820,6 +1820,10 @@ pre code {
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
+<<<<<<< HEAD
+=======
+  margin-left: 10px;
+>>>>>>> 16789c06424094352e6374f0ecd048cdb639d855
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -4880,7 +4884,11 @@ input[type="button"].btn-block {
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
+<<<<<<< HEAD
   background-color: #50c1a7;;
+=======
+  background-color: #50c1a7;
+>>>>>>> 16789c06424094352e6374f0ecd048cdb639d855
   border-radius: 0.3rem;
 }
 
@@ -7534,6 +7542,14 @@ button.bg-dark:focus {
 .mt-4,
 .my-4 {
   margin-top: 1.5rem !important;
+<<<<<<< HEAD
+=======
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+>>>>>>> 16789c06424094352e6374f0ecd048cdb639d855
 }
 
 .mr-4,

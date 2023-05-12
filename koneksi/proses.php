@@ -23,10 +23,16 @@ if($_GET['id'] == 'login'){
         {
             echo '<script>alert("Login Sukses");window.location="../admin/index.php";</script>';    
         }
+<<<<<<< HEAD
         
         else
         {
             echo '<script>alert("Login Sukses");window.location="./admin/index.php;</script>'; 
+=======
+        else
+        {
+            echo '<script>alert("Login Sukses");window.location="../index.php";</script>'; 
+>>>>>>> 16789c06424094352e6374f0ecd048cdb639d855
         }
 
     }
@@ -35,6 +41,7 @@ if($_GET['id'] == 'login'){
         echo '<script>alert("Login Gagal");window.location="../index.php";</script>'; 
     }
 }
+<<<<<<< HEAD
                 $row = $koneksi->prepare("SELECT * FROM akun_karyawan WHERE username = ? AND password = md5(?)");
                     
                 $row->execute(array($user,$pass));
@@ -98,6 +105,8 @@ if($_GET['id'] == 'daftar')
 
 
 
+=======
+>>>>>>> 16789c06424094352e6374f0ecd048cdb639d855
 
 if($_GET['id'] == 'daftar')
 {

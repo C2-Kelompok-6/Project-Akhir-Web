@@ -1,0 +1,18 @@
+.card-header {
+    border-bottom: none;
+  }
+  .card {
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .form-control {
+    border-radius: 0;
+  }
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+    border-radius: 0;
+  }
+  .btn-primary:hover {
+    background-color: #0069d9;
+  }
+  
