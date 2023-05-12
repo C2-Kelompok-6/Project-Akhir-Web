@@ -25,7 +25,7 @@
                         <tr>
                             <th>No. </th>
                             <th>Kode Booking</th>
-                            <th>Merk Mobil</th>
+                            <th>Merk </th>
                             <th>Nama </th>
                             <th>Tanggal Sewa </th>
                             <th>Lama Sewa </th>
