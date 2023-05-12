@@ -1,10 +1,8 @@
 <?php
 
     session_start();
-    if(!empty($_SESSION['USER']['level'] == 'admin')){ 
+    if(!empty($_SESSION['USER1']['level'] == 'karyawan')){ 
 
-    }else{ 
-        echo '<script>alert("Login Khusus Admin !");window.location="../index.php";</script>';
     }
  
     // select untuk panggil nama admin
@@ -37,37 +35,28 @@
     </div>
     <div style="margin-top:-2pc"></div>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #333;">
-        <a class="navbar-brand" href="<?php echo $url;?>admin/"><b>Admin</b></a>
+        <b>karyawan</b>
         <button class="navbar-toggler text-white d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation" style="color:#fff;">
             <i class="fa fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item <?php if($title_web == 'Dashboard'){ echo 'active';}?>">
-                    <a class="nav-link" href="<?php echo $url;?>admin/">Beranda <span class="sr-only">(current)</span></a>
-                </li>
-
+                
                 <li class="nav-item <?php if($title_web == 'User'){ echo 'active';}?>">
-                    <a class="nav-link" href="<?php echo $url;?>admin/user1/index.php">Pelanggan</a>
+                    <a class="nav-link" href="<?php echo $url;?>admin/user/index.php">Pelanggan</a>
                 </li>
 
                 <li class="nav-item <?php if($title_web == 'Daftar Booking'){ echo 'active';}?>
                 <?php if($title_web == 'Konfirmasi'){ echo 'active';}?>">
-                    <a class="nav-link" href="<?php echo $url;?>admin/booking1/booking.php">Daftar Booking</a>
+                    <a class="nav-link" href="<?php echo $url;?>admin/booking/booking.php">Daftar Booking</a>
                 </li>
 
                 <li class="nav-item <?php if($title_web == 'Peminjaman'){ echo 'active';}?>">
-                    <a class="nav-link" href="<?php echo $url;?>admin/peminjaman1/peminjaman.php">Peminjaman / Pengembalian</a>
+                    <a class="nav-link" href="<?php echo $url;?>admin/peminjaman/peminjaman.php">Peminjaman / Pengembalian</a>
                 </li>
-              
-                <li class="nav-item <?php if($title_web == 'Daftar Mobil'){ echo 'active';}?>
-                <?php if($title_web == 'Tambah Mobil'){ echo 'active';}?>
-                <?php if($title_web == 'Edit Mobil'){ echo 'active';}?>">
-                    <a class="nav-link" href="<?php echo $url;?>admin/ps/ps.php">Daftar Playstation</a>
-                </li>
-               
-            
+        
+           
             </ul>
             <ul class="navbar-nav my-2 my-lg-0">
                 <li class="nav-item">

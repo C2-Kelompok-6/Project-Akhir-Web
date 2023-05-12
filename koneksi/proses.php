@@ -23,9 +23,10 @@ if($_GET['id'] == 'login'){
         {
             echo '<script>alert("Login Sukses");window.location="../admin/index.php";</script>';    
         }
+        
         else
         {
-            echo '<script>alert("Login Sukses");window.location="../index.php";</script>'; 
+            echo '<script>alert("Login Sukses");window.location="./admin/index.php;</script>'; 
         }
 
     }
@@ -34,6 +35,69 @@ if($_GET['id'] == 'login'){
         echo '<script>alert("Login Gagal");window.location="../index.php";</script>'; 
     }
 }
+                $row = $koneksi->prepare("SELECT * FROM akun_karyawan WHERE username = ? AND password = md5(?)");
+                    
+                $row->execute(array($user,$pass));
+
+                $hitung = $row->rowCount();
+
+                if($hitung > 0)
+                {
+
+                    session_start();
+                    $hasil = $row->fetch();
+                    
+                    $_SESSION['USER'] = $hasil;
+                    if($_SESSION['USER']['level'] == 'karyawan')
+                    {
+                        echo '<script>alert("Login Sukses");window.location="../admin/karyawan.php";</script>'; 
+                    }
+                   
+
+                }
+                else
+                {
+                    echo '<script>alert("Login berhasil");window.location="../index.php";</script>'; 
+                }
+
+
+if($_GET['id'] == 'daftar')
+{
+    $data[] = $_POST['nama'];
+    $data[] = $_POST['jenis_kelamin'];
+    $data[] = $_POST['alamat'];
+    $data[] = $_POST['telepon'];
+    $data[] = $_POST['email'];
+    $data[] = $_POST['user'];
+    $data[] = md5($_POST['pass']);
+    $data[] = 'karyawan';
+
+    $row = $koneksi->prepare("SELECT * FROM akun_karyawan WHERE username = ?");
+    
+    $row->execute(array($_POST['user']));
+    
+    $hitung = $row->rowCount();
+
+    if($hitung > 0)
+    {
+        echo '<script>alert("Daftar Gagal, Username Sudah digunakan ");window.location="../index.php";</script>'; 
+    }
+    else
+    {
+
+        $sql = "INSERT INTO `akun_karyawan`(`nama`,`jenis_kelamin`,`alamat`,`telepon`,`email`, `username`, `password`, `level`)
+                VALUES (?,?,?,?,?,?,?,?)";
+        $row = $koneksi->prepare($sql);
+        $row->execute($data);
+    
+        echo '<script>alert("Daftar Sukses Silahkan Login");window.location="../index.php";</script>'; 
+    }
+
+
+}
+
+
+
 
 if($_GET['id'] == 'daftar')
 {

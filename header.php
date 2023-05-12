@@ -13,15 +13,7 @@
   <body>
     <div class="jumbotron pt-4 pb-4">
     <form method="get" action="blog.php">
-    <div class="form-group">
-        <label for="status">Status</label>
-        <select name="status" id="status" class="form-control">
-            <option value="">Semua</option>
-            <option value="Tersedia">Tersedia</option>
-            <option value="Tidak Tersedia">Tidak Tersedia</option>
-        </select>
-    </div>
-    <button type="submit" class="btn btn-primary">Filter</button>
+   
 </form>
 
         <div class="row">
@@ -30,9 +22,19 @@
             </div>
             <div class="col-sm-4">
                 <form class="form-inline" method="get" action="blog.php">
+                <div class="form-group">
+                 
+                    <select name="status" id="status" class="form-control">
+                    <option value="">Semua</option>
+                    <option value="Tersedia">Tersedia</option>
+                    <option value="Tidak Tersedia">Tidak Tersedia
+                     </select>
+                    </div>
+                    </option><button type="submit" class="btn btn-primary">Filter</button>
                     <input class="form-control mr-sm-2" type="search" name="cari" placeholder="Cari Playstation" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
+            
             </div>
         </div>
     </div>
@@ -51,8 +53,9 @@
                     <a class="nav-link" href="blog.php">Daftar Playstation</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="kontak.php">Kontak Kami</a>
+                    <a class="nav-link" href="kontak.php">Kontak</a>
                 </li>
+
             <?php if(!empty($_SESSION['USER'])){?>
                 <li class="nav-item active">
                     <a class="nav-link" href="history.php">History</a>
@@ -60,6 +63,7 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="profil.php">Profil</a>
                 </li>
+                
             <?php }?>
             </ul>
             <?php if(!empty($_SESSION['USER'])){?>

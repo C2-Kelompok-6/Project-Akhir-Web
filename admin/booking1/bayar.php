@@ -1,55 +1,36 @@
 <?php
 
     require '../../koneksi/koneksi.php';
-    $title_web = 'Peminjaman';
-    include '../karyawanHD.php';
+    $title_web = 'Konfirmasi';
+    include '../header.php';
+    session_start();
     if(empty($_SESSION['USER']))
     {
-        session_start();
+        echo '<script>alert("login dulu");window.location="index.php"</script>';
     }
-    if(!empty($_GET['id'])){
-        $kode_booking = $_GET['id'];
-        
-        $hasil = $koneksi->query("SELECT * FROM booking WHERE kode_booking = '$kode_booking'")->fetch();
+    $kode_booking = $_GET['id'];
+    $hasil = $koneksi->query("SELECT * FROM booking WHERE kode_booking = '$kode_booking'")->fetch();
 
-        $id_booking = $hasil['id_booking'];
-        if(!isset($id_booking))
-        {
-            echo '<script>alert("Tidak Ada Data !");window.location="peminjaman.php"</script>';
-        }
-        $hsl = $koneksi->query("SELECT * FROM pembayaran WHERE id_booking = '$id_booking'")->fetch();
+    $id_booking = $hasil['id_booking'];
+    $hsl = $koneksi->query("SELECT * FROM pembayaran WHERE id_booking = '$id_booking'")->fetch();
+    $c = $koneksi->query("SELECT * FROM pembayaran WHERE id_booking = '$id_booking'")->rowCount();
 
 
-        $id = $hasil['id_ps'];
-        $isi = $koneksi->query("SELECT * FROM playstation WHERE id_ps = '$id'")->fetch();
-    }
+    $id = $hasil['id_ps'];
+    $isi = $koneksi->query("SELECT * FROM playstation WHERE id_ps = '$id'")->fetch();
     
 ?>
 <br>
 <br>
 <div class="container">
 <div class="row">
-    <div class="col-sm-12">
-        <div class="card">
-            <div class="card-header">
-                <h5> Cari Booking</h5>
-            </div>
-            <div class="card-body">
-                <form method="get" action="peminjaman.php">
-                    <input type="text" class="form-control" 
-                    value="<?php if(!empty($_GET['id'])){ echo $_GET['id']; }?>" name="id" placeholder="Tulis Kode Booking [ ENTER ]">
-                </form>
-            </div>
-        </div>
-        <br>
-    </div>
-    <?php if(!empty($_GET['id'])){?>
     <div class="col-sm-4">
         <div class="card">
             <div class="card-header">
                 <h5> Detail Pembayaran</h5>
             </div>
             <div class="card-body">
+                <?php if($c > 0){?>
                 <table class="table">
                     <tr>
                         <td>No Rekening</td>
@@ -72,34 +53,48 @@
                         <td><?= $hsl['tanggal'];?></td>
                     </tr>
                 </table>
+                <?php }else{?>
+                    <h4>Belum di bayar</h4>
+                <?php }?>
             </div>
         </div>
         <br/>
         <div class="card">
             <div class="card-header">
-                <h5 class="card-title"><?php echo $isi['merk'];?></h5>
+                <h5 class="card-title"><?php echo $isi['series_playstation'];?></h5>
             </div>
-                <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush">
+
                 <?php if($isi['status'] == 'Tersedia'){?>
+
                     <li class="list-group-item bg-primary text-white">
                         <i class="fa fa-check"></i> Available
                     </li>
+
                 <?php }else{?>
+
                     <li class="list-group-item bg-danger text-white">
                         <i class="fa fa-close"></i> Not Available
                     </li>
+
                 <?php }?>
-               
+            
+            
+                
                 <li class="list-group-item bg-dark text-white">
                     <i class="fa fa-money"></i> Rp. <?php echo number_format($isi['harga']);?>/ day
                 </li>
             </ul>
+            <div class="card-footer">
+                <a href="<?php echo $url;?>admin/peminjaman/peminjaman.php?id=<?php echo $hasil['kode_booking'];?>" 
+                    class="btn btn-success btn-md">Ubah Status Peminjaman</a>
+            </div>
         </div>
     </div>
     <div class="col-sm-8">
          <div class="card">
             <div class="card-header">
-                <h5 class="card-title">Detail Booking & Status </h5>
+                <h5> Detail booking</h5>
             </div>
            <div class="card-body">
                <form method="post" action="proses.php?id=konfirmasi">
@@ -144,17 +139,17 @@
                             <td> :</td>
                             <td>
                                 <select class="form-control" name="status">
-                                    <option <?php if($isi['status'] == 'Tersedia'){echo 'selected';}?> value="Tersedia">
-                                        Tersedia ( Kembali )
+                                    <option <?php if($hasil['konfirmasi_pembayaran'] == 'Sedang di proses'){echo 'selected';}?>>
+                                        Sedang di proses
                                     </option>
-                                    <option <?php if($isi['status'] == 'Tidak Tersedia'){echo 'selected';}?> value="Tidak Tersedia">
-                                        Tidak Tersedia ( Pinjam )
+                                    <option <?php if($hasil['konfirmasi_pembayaran'] == 'Pembayaran di terima'){echo 'selected';}?>>
+                                        Pembayaran di terima
                                     </option>
                                 </select>    
                             </td>
                         </tr>
                     </table>
-                    <input type="hidden" name="id_ps" value="<?php echo $isi['id_ps'];?>">
+                    <input type="hidden" name="id_booking" value="<?php echo $hasil['id_booking'];?>">
                     <button type="submit" class="btn btn-primary float-right">
                         Ubah Status
                     </button>
@@ -163,10 +158,10 @@
            </div>
          </div> 
     </div>
-    <?php }?>
 </div>
 </div>
 <br>
 <br>
 <br>
-<?php  include '../footer.php';?>
+
+<?php include '../footer.php';?>
